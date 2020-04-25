@@ -32,7 +32,23 @@ const ConnectPage = props => {
 							</div>
 							<div>
 								<Edit2 style={iconStyle} />
-								<X style={iconStyle} />
+								<X
+									style={iconStyle}
+									onClick={() => {
+										axios
+											.post(
+												`${config.apiUrl}/delete/${c.id}`,
+												{},
+												{
+													headers: {
+														authorization: props.user.sessionToken
+													}
+												}
+											)
+											.then(() => location.reload())
+											.catch(() => {});
+									}}
+								/>
 							</div>
 						</article>
 					))}

@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 
 export default async (req, res) => {
 	const user = await auth(req.headers.authorization);
-	if (!user) return res.status(400).json({err: "invalidSession"});
+	if (!user) return res.status(401).json({err: "invalidSession"});
 
 	//Get Address
 	let address;

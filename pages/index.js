@@ -2,6 +2,7 @@ import Page from "../components/Page";
 import withAuth from "../reactants/withAuth";
 import config from "../config";
 import Link from "next/link";
+import theme from "../reactants/theme";
 
 const Homepage = props => (
 	<Page user={props.user}>
@@ -13,12 +14,33 @@ const Homepage = props => (
 			</a>
 		</Link>
 
+		<section className="tips">
+			<h1>Things to try</h1>
+			<div>
+				<h2>Define Pulsar</h2>
+				<p>Pulsar can give you the definition of any word! Like how when we were beta testing Pulsar with teamviewer, I shut down my friend's computer and he called me a "troglodyte", so I used Pulsar to find out what it meant.</p>
+			</div>
+			<div>
+				<h2>@archie</h2>
+				<p>With Pulsar, you can quickly find an Alles user by just entering their username.</p>
+			</div>
+			<div>
+				<h2>floor(5! * pi * sqrt(1) * e)</h2>
+				<p>Pulsar can do cool maths things that I don't really understand.</p>
+			</div>
+			<h3>+ search suggestions, whoami, terminal commands and a bunch of other cool stuff...</h3>
+		</section>
+
+		<Link href="/install">
+			<a className="install">
+				<p>Install</p>
+			</a>
+		</Link>
+
 		<style jsx>{`
 			.pulsar {
 				display: block;
-				margin: 0 auto;
-				width: 800px;
-				max-width: 100%;
+				width: 100%;
 				height: 75px;
 				position: relative;
 				border-radius: 10px;
@@ -73,6 +95,67 @@ const Homepage = props => (
 				100% {
 					transform: rotate(1turn);
 				}
+			}
+
+			.tips {
+				background: white;
+				border: solid 1px ${theme.borderGrey};
+				border-radius: 10px;
+				box-sizing: border-box;
+				padding: 20px;
+				margin: 20px 0;
+			}
+
+			.tips h1 {
+				margin: 0;
+			}
+
+			.tips div {
+				box-sizing: border-box;
+				border-left: solid 5px ${theme.accent};
+				margin: 20px 0;
+				padding: 10px;
+				border-radius: 5px 0 0 5px;
+			}
+
+			.tips h2 {
+				font-size: 20px;
+				font-weight: 500;
+				margin: 0;
+				margin-bottom: 5px;
+			}
+
+			.tips p {
+				margin: 0;
+			}
+
+			.tips h3 {
+				font-weight: 300;
+				font-size: 12px;
+				margin: 0;
+			}
+
+			.install {
+				display: flex;
+				flex-flow: column;
+				justify-content: center;
+				width: 100%;
+				height: 75px;
+				position: relative;
+				border-radius: 10px;
+				z-index: 0;
+				background: #e3005b;
+				color: white;
+				text-align: center;
+				font-size: 30px;
+			}
+
+			.install:hover {
+				background: #ff0070;
+			}
+
+			.install p {
+				margin: 0;
 			}
 		`}</style>
 	</Page>

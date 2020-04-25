@@ -34,7 +34,7 @@ export default props => {
 				}
 
 				.innerMain {
-					max-width: 1000px;
+					max-width: 800px;
 					margin: 20px auto;
 				}
 			`}</style>

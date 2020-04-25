@@ -9,7 +9,7 @@ const Homepage = props => (
 		<Link href="/install">
 			<a className="pulsar">
 				<div>
-					<img src="/pulsar.png" />
+					<img src="/app.png" />
 				</div>
 			</a>
 		</Link>

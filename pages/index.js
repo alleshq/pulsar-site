@@ -40,7 +40,7 @@ const Homepage = props => (
 			</h3>
 		</section>
 
-		<a href="https://github.com/alleshq/releases" className="install">
+		<a href="https://github.com/alleshq/pulsar/releases" className="install">
 			<p>Install</p>
 		</a>
 		<p className="clients">

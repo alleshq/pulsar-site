@@ -47,6 +47,12 @@ const Homepage = props => (
 				<p>Install</p>
 			</a>
 		</Link>
+		<p className="clients">
+			or{" "}
+			<Link href="/clients">
+				<a>see your clients</a>
+			</Link>
+		</p>
 
 		<style jsx>{`
 			.pulsar {
@@ -167,6 +173,15 @@ const Homepage = props => (
 
 			.install p {
 				margin: 0;
+			}
+
+			.clients {
+				text-align: center;
+				color: ${theme.grey4};
+			}
+
+			.clients a {
+				text-decoration: underline;
 			}
 		`}</style>
 	</Page>

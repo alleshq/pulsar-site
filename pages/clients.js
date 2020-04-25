@@ -8,14 +8,17 @@ import {Edit2, X} from "react-feather";
 import {useState, useEffect} from "react";
 
 const ConnectPage = props => {
-    const iconStyle = {
-        color: theme.grey8,
-        margin: "0 5px",
-        cursor: "pointer"
-    };
+	const iconStyle = {
+		color: theme.grey8,
+		margin: "0 5px",
+		cursor: "pointer"
+	};
 
-    const [dates, setDates] = useState([]);
-    useEffect(() => setDates(props.clients.map(c => moment(c.createdAt).format("LLL"))), []);
+	const [dates, setDates] = useState([]);
+	useEffect(
+		() => setDates(props.clients.map(c => moment(c.createdAt).format("LLL"))),
+		[]
+	);
 
 	return (
 		<Page user={props.user}>
@@ -46,32 +49,32 @@ const ConnectPage = props => {
 
 				h1 {
 					margin: 0;
-                    margin-bottom: 30px;
+					margin-bottom: 30px;
 				}
 
-                article {
-                    display: flex;
-                    border-bottom: solid 1px ${theme.borderGrey};
-                    padding: 10px;
-                }
+				article {
+					display: flex;
+					border-bottom: solid 1px ${theme.borderGrey};
+					padding: 10px;
+				}
 
-                article:nth-child(1) {
-                    border-top: solid 1px ${theme.borderGrey};
-                }
+				article:nth-child(1) {
+					border-top: solid 1px ${theme.borderGrey};
+				}
 
-                article div:nth-child(1) {
-                    flex-grow: 1;
-                }
+				article div:nth-child(1) {
+					flex-grow: 1;
+				}
 
-                article div:nth-child(2) {
-                    flex-shrink: 0;
-                }
+				article div:nth-child(2) {
+					flex-shrink: 0;
+				}
 
-                article h2 {
-                    margin: 0;
-                    font-weight: 400;
-                    font-size: 20px;
-                }
+				article h2 {
+					margin: 0;
+					font-weight: 400;
+					font-size: 20px;
+				}
 			`}</style>
 		</Page>
 	);

@@ -9,8 +9,8 @@ export default async (req, res) => {
 	const clients = await db.Client.findAll({
 		where: {
 			userId: user.id
-        },
-        order: ["name"]
+		},
+		order: ["name"]
 	});
 
 	res.json({

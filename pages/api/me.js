@@ -9,7 +9,6 @@ export default async (req, res) => {
 		username: user.username,
 		name: user.name,
 		nickname: user.nickname,
-		about: user.about,
 		plus: user.plus
 	});
 };

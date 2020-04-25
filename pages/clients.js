@@ -8,18 +8,6 @@ import {Edit2, X} from "react-feather";
 import {useState, useEffect} from "react";
 
 const ConnectPage = props => {
-	const iconStyle = {
-		color: theme.grey8,
-		margin: "0 5px",
-		cursor: "pointer"
-	};
-
-	const [dates, setDates] = useState([]);
-	useEffect(
-		() => setDates(props.clients.map(c => moment(c.createdAt).format("LLL"))),
-		[]
-	);
-
 	return (
 		<Page user={props.user}>
 			<section>
@@ -27,31 +15,13 @@ const ConnectPage = props => {
 				{props.clients.length > 0 ? (
 					<div className="clients">
 						{props.clients.map((c, i) => (
-							<article key={c.id}>
-								<div title={`Created at ${dates[i]}`}>
-									<h2>{c.name}</h2>
-								</div>
-								<div>
-									<Edit2 style={iconStyle} />
-									<X
-										style={iconStyle}
-										onClick={() => {
-											axios
-												.post(
-													`${config.apiUrl}/delete/${c.id}`,
-													{},
-													{
-														headers: {
-															authorization: props.user.sessionToken
-														}
-													}
-												)
-												.then(() => location.reload())
-												.catch(() => {});
-										}}
-									/>
-								</div>
-							</article>
+							<Client
+								key={c.id}
+								id={c.id}
+								name={c.name}
+								date={c.date}
+								s={props.user.sessionToken}
+							/>
 						))}
 					</div>
 				) : (
@@ -71,10 +41,51 @@ const ConnectPage = props => {
 					margin: 0;
 				}
 
-                .clients {
+				.clients {
 					margin-top: 30px;
-                }
+				}
+			`}</style>
+		</Page>
+	);
+};
 
+const Client = props => {
+	const [date, setDate] = useState();
+	useEffect(() => setDate(moment(props.date).format("LLL")), []);
+
+	const iconStyle = {
+		color: theme.grey8,
+		margin: "0 5px",
+		cursor: "pointer"
+	};
+
+	return (
+		<article>
+			<div title={`Created at ${date}`}>
+				<h2>{props.name}</h2>
+			</div>
+			<div>
+				<Edit2 style={iconStyle} />
+				<X
+					style={iconStyle}
+					onClick={() => {
+						axios
+							.post(
+								`${config.apiUrl}/delete/${props.id}`,
+								{},
+								{
+									headers: {
+										authorization: props.s
+									}
+								}
+							)
+							.then(() => location.reload())
+							.catch(() => {});
+					}}
+				/>
+			</div>
+
+			<style jsx>{`
 				article {
 					display: flex;
 					border-bottom: solid 1px ${theme.borderGrey};
@@ -99,7 +110,7 @@ const ConnectPage = props => {
 					font-size: 20px;
 				}
 			`}</style>
-		</Page>
+		</article>
 	);
 };
 

@@ -18,17 +18,28 @@ const Homepage = props => (
 			<h1>Things to try</h1>
 			<div>
 				<h2>Define Pulsar</h2>
-				<p>Pulsar can give you the definition of any word! Like how when we were beta testing Pulsar with teamviewer, I shut down my friend's computer and he called me a "troglodyte", so I used Pulsar to find out what it meant.</p>
+				<p>
+					Pulsar can give you the definition of any word! Like how when we were
+					beta testing Pulsar with teamviewer, I shut down my friend's computer
+					and he called me a "troglodyte", so I used Pulsar to find out what it
+					meant.
+				</p>
 			</div>
 			<div>
 				<h2>@archie</h2>
-				<p>With Pulsar, you can quickly find an Alles user by just entering their username.</p>
+				<p>
+					With Pulsar, you can quickly find an Alles user by just entering their
+					username.
+				</p>
 			</div>
 			<div>
 				<h2>floor(5! * pi * sqrt(1) * e)</h2>
 				<p>Pulsar can do cool maths things that I don't really understand.</p>
 			</div>
-			<h3>+ search suggestions, whoami, terminal commands and a bunch of other cool stuff...</h3>
+			<h3>
+				+ search suggestions, whoami, terminal commands and a bunch of other
+				cool stuff...
+			</h3>
 		</section>
 
 		<Link href="/install">

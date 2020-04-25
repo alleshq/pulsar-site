@@ -6,13 +6,11 @@ import theme from "../reactants/theme";
 
 const Homepage = props => (
 	<Page user={props.user}>
-		<Link href="/install">
-			<a className="pulsar">
-				<div>
-					<img src="/app.png" />
-				</div>
-			</a>
-		</Link>
+		<div className="pulsar">
+			<div>
+				<img src="/app.png" />
+			</div>
+		</div>
 
 		<section className="tips">
 			<h1>Things to try</h1>
@@ -42,11 +40,9 @@ const Homepage = props => (
 			</h3>
 		</section>
 
-		<Link href="/install">
-			<a className="install">
-				<p>Install</p>
-			</a>
-		</Link>
+		<a href="https://github.com/alleshq/releases" className="install">
+			<p>Install</p>
+		</a>
 		<p className="clients">
 			or{" "}
 			<Link href="/clients">

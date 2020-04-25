@@ -3,12 +3,15 @@ import withAuth from "../reactants/withAuth";
 import config from "../config";
 import Link from "next/link";
 import theme from "../reactants/theme";
+import WhatsUp from "../components/whatsup";
 
 const Homepage = props => (
 	<Page user={props.user}>
 		<div className="pulsar">
 			<div>
-				<img src="/app.png" />
+				<div>
+					<WhatsUp height="100%" />
+				</div>
 			</div>
 		</div>
 
@@ -91,8 +94,8 @@ const Homepage = props => (
 				border-radius: 5px;
 			}
 
-			.pulsar div {
-				background: #232323;
+			.pulsar > div {
+				background: #1e1e1e;
 				width: calc(100% - 10px);
 				height: calc(100% - 10px);
 				margin: 5px;
@@ -100,8 +103,13 @@ const Homepage = props => (
 				border-radius: 5px;
 			}
 
-			.pulsar img {
-				height: 100%;
+			.pulsar > div > div {
+				margin: 14px 20px 11px 20px;
+				display: flex;
+				flex-flow: column;
+				justify-content: center;
+				height: calc(100% - 25px);
+				width: fit-content;
 			}
 
 			@keyframes rotate {

@@ -7,15 +7,6 @@ export default async (req, res) => {
 	const user = await auth(req.headers.authorization);
 	if (!user) return res.status(401).json({err: "invalidSession"});
 
-	//Get Address
-	let address;
-	if (req.headers["x-forwarded-for"]) {
-		let ips = req.headers["x-forwarded-for"].split(", ");
-		address = ips[ips.length - 1];
-	} else {
-		address = req.connection.remoteAddress;
-	}
-
 	//Generate Code
 	res.json({
 		code:
@@ -23,7 +14,6 @@ export default async (req, res) => {
 			jwt.sign(
 				{
 					user: user.id,
-					address,
 					type: "authcode"
 				},
 				credentials.jwtSecret,

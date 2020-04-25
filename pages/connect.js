@@ -2,6 +2,7 @@ import Page from "../components/Page";
 import withAuth from "../reactants/withAuth";
 import config from "../config";
 import theme from "../reactants/theme";
+import axios from "axios";
 
 const ConnectPage = props => (
 	<Page user={props.user}>
@@ -129,10 +130,13 @@ const ConnectPage = props => (
 );
 
 ConnectPage.getInitialProps = async ctx => {
-	return {
-		code:
-			"pulsar-connect:fomrfinrnoe['bgoernogvm[pvfmpedgmoprnoimpdsghmp'[rnsiognortnhrkfnlrnglknrtlhnlrsirtninzoiNINKBlfbJBLOInbkbklbKBBF"
-	};
+	return (
+		await axios.get(`${config.apiUrl}/code`, {
+			headers: {
+				authorization: ctx.user.sessionToken
+			}
+		})
+	).data;
 };
 
 export default withAuth(ConnectPage, `${config.apiUrl}/me`);

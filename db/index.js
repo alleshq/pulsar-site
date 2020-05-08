@@ -1,5 +1,7 @@
-const credentials = require("../credentials");
-const Sequelize = require("sequelize");
+import credentials from "../credentials";
+import Sequelize from "sequelize";
+
+import Client from "./Client";
 
 //Create Instance
 const db = new Sequelize(
@@ -15,7 +17,7 @@ const db = new Sequelize(
 		}
 	}
 );
-module.exports = db;
+export default db;
 
 //Models
-require("./Client")(db);
+Client(db);

@@ -1,6 +1,6 @@
-const {DataTypes} = require("sequelize");
+import {DataTypes} from "sequelize";
 
-module.exports = db => {
+export default db => {
 	db.Client = db.define(
 		"client",
 		{
